@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CommonButton from "./common/CommonButton";
 import { tabData } from "./common/Helper";
@@ -6,24 +7,22 @@ import Sidebar from "./common/Sidebar";
 
 const TabsParams = () => {
   const [params, setParams] = useState(tabData[0].id);
-
+  const router = useRouter();
+  const pathname = router.pathname;
   useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const typeParam = searchParams.get("type");
+    const typeParam = new URLSearchParams(window.location.search).get("type");
     if (typeParam) {
       setParams(typeParam);
     }
-  }, []);
-
-  const clickHandler = (tabName) => {
-    const value = tabName;
-    window.history.pushState({}, "", `?type=${value}`);
+  }, [pathname]);
+  const clickHandler = (obj) => {
+    const value = obj.replace(/\s+/g, "-");
+    router.push(`?type=${value}`);
     setParams(value);
   };
-
   return (
     <div>
-      <Sidebar/>
+      <Sidebar />
       <div className="max-w-[1140px] mx-auto px-4 container pt-10">
         <div className="flex gap-6 mb-4">
           {tabData.map((obj, i) => (
