@@ -1,11 +1,12 @@
-import TabsParams from '@/components/TabsParams'
-import React from 'react'
+import TabsParams from "@/components/tabs/TabsParams";
+import React from "react";
 
 const page = () => {
   return (
-    <div><TabsParams/>
+    <div>
+      <TabsParams />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

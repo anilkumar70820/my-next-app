@@ -11,7 +11,7 @@ const Sidebar = () => {
   //   document.body.classList.remove("overflow-hidden");
   // }
   return (
-    <header className="bg-black py-4 shadow-xl">
+    <header className="bg-black py-4 shadow-xl  !sticky top-0 left-0 w-full z-10">
       <div className="container mx-auto px-4 max-w-[1140px]">
         <nav className="flex items-center justify-between">
           <Link href="/" className="text-xl font-medium font-mono text-white">

@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import CommonButton from "./common/CommonButton";
-import { tabData } from "./common/Helper";
-import Sidebar from "./common/Sidebar";
+import CommonButton from "../common/CommonButton";
+import { tabData } from "../common/Helper";
+import Sidebar from "../common/Sidebar";
 
 const TabsParams = () => {
   const [params, setParams] = useState(tabData[0].id);
