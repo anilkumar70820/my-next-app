@@ -1,15 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import { SIDEBAR_LINKS } from "@/utils/helper";
 import Link from "next/link";
-import { sidebarLinks } from "./Helper";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const [openSidebar, setOpenSidebar] = useState(true);
-  // if (!openSidebar) {
-  //   document.body.classList.add("overflow-hidden");
-  // } else {
-  //   document.body.classList.remove("overflow-hidden");
-  // }
+  useEffect(()=>{
+    if (!openSidebar) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  },[openSidebar])
   return (
     <header className="bg-black py-4 shadow-xl  !sticky top-0 left-0 w-full z-10">
       <div className="container mx-auto px-4 max-w-[1140px]">
@@ -49,7 +51,7 @@ const Sidebar = () => {
               </div>
             </div>
             <ul className="mb-0 flex flex-col py-5 h-[calc(100vh-52px)] overflow-y-auto">
-              {sidebarLinks.map((obj, i) => {
+              {SIDEBAR_LINKS.map((obj, i) => {
                 return (
                   <li key={i}>
                     <Link
